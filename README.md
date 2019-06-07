@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Card Game
+A simple video poker sim that allows for two of the popular scoring conditions: pairs and straights. 
 
-## Available Scripts
+## Product Requirements
+1. The user may press the “Deal” button
+1. A new, 52 card deck, is created and shuffled
+1. The top five cards from the deck are laid out horizontally on-screen
+1. The user chooses whether to keep or discard each card by clicking an individual card to toggle between “keep” and “discard” states.
+    * Design Decision: only "discard" state will be displayed in the UI, it is assumed that you are keeping a card if it is not labeled discard. This can be changed by flipping a variable in the source code (see below).
+1. The user may press the “Go” button
+1. Each discarded card is replaced with a card from the top of the deck
+1. The value of the resulting hand is displayed using the following scoring rules:
+    * Straight (500 points): Five cards of consecutive rank. Example: 9:spades: 10:spades: J:diamonds: Q:hearts: K:diamonds:
+    * Pair (100 points): Two cards of the same rank. Example: 5:clubs: 5:diamonds:
+1. The “Deal” button replaces the “go” button. The user may click "Deal" to start the next game.
 
-In the project directory, you can run:
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To get up and running with this game please perform the following steps:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* Clone/Download branch
+```git clone https://github.com/justincrich/card-game```
+* Install dependencies
+```yarn install```
+or
+```npm install```
+* Start server with ```yarn start``` or ```npm run start```
+* Open browser at ```http://localhost:3000``` (should open by default)
+* Play Game
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Considerations
+* .env file in repo
+    * This is a bad convention, but since all I'm doing is skipping the default Create_React_App preflight with ```SKIP_PREFLIGHT_CHECK``` I figure it's acceptable
+* Displaying "Keep" Label
+    * In ```src/game.js``` on line 66 change ```showLabel``` to ```true```
+        * ex:
+        ```javascript
+                    <Card
+              {...card}
+              key={JSON.stringify(card)}
+              showSelectedLabel={false}
+              discard={discardList[index]}
+              onDiscard={() => {
+                if (!result) {
+                  handleDiscardSelect(index);
+                }
+              }}
+            />
+        ```

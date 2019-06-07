@@ -57,12 +57,12 @@ export default function Game() {
         Press "DEAL" to generate your hand. Then click each card you wish to
         discard and press "GO" to see your score.
       </h2>
-
       <HandContainer>
         {hand &&
           hand.map((card, index) => (
             <Card
               {...card}
+              key={JSON.stringify(card)}
               showSelectedLabel={false}
               discard={discardList[index]}
               onDiscard={() => {
