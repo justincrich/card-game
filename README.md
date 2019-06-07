@@ -1,5 +1,6 @@
 # Card Game
 A simple video poker sim that allows for two of the popular scoring conditions: pairs and straights. 
+Original prompt: https://gist.github.com/rattlion/c596bed01deca39103aeeb10e08e8536
 
 ## Product Requirements
 1. The user may press the “Deal” button
