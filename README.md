@@ -39,7 +39,7 @@ or
     * In ```src/game.js``` on line 66 change ```showLabel``` to ```true```
         * ex:
         ```javascript
-                    <Card
+            <Card
               {...card}
               key={JSON.stringify(card)}
               showSelectedLabel={false}
