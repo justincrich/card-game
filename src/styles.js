@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  min-width: 1000px;
   h1 {
     font-size: 50px;
     margin-bottom: ${SPACING_SMALL}px;
