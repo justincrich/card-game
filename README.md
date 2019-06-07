@@ -30,6 +30,9 @@ or
 * Play Game
 
 ## Considerations
+* Testing
+    * testing can be performed by running ```yarn test``` or ```npm run test```
+    * all tests cover the basic game logic in ```src/helperFunctions.js```
 * .env file in repo
     * This is a bad convention, but since all I'm doing is skipping the default Create_React_App preflight with ```SKIP_PREFLIGHT_CHECK``` I figure it's acceptable
 * Displaying "Keep" Label
