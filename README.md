@@ -32,6 +32,7 @@ or
 ## Considerations
 * Testing
     * testing can be performed by running ```yarn test``` or ```npm run test```
+    * tests are contained in ```src/index.test.js```
     * all tests cover the basic game logic in ```src/helperFunctions.js```
 * .env file in repo
     * This is a bad convention, but since all I'm doing is skipping the default Create_React_App preflight with ```SKIP_PREFLIGHT_CHECK``` I figure it's acceptable
@@ -51,3 +52,8 @@ or
               }}
             />
         ```
+## Key Dependencies
+Dependency | Version | Description
+-----------| ------- | -----------
+[React](https://reactjs.org/)| 16.8.6 | Basic SPA library
+[StyledComponents](https://www.styled-components.com/)| 4.3.1 | Allows for modularized CSS/SCSS styling using React components.
